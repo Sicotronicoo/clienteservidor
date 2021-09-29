@@ -1,0 +1,23 @@
+<html lang="es" xml:lan="es" xmlns:th="http://www.thymeLeaf.org">
+	<head>
+	</head>
+	<body>
+	<form th:action="@{/quiz3}" method="post">
+	<h1>3ª Pregunta</h1>
+	<fieldset>
+	<legend>Seleccione las que considere que son las 2 mejores temporadas</legend>
+		<input type="checkbox" id="temporada1" name="temporada" value="temp1">
+			<label for="temporada1">Temporada 1</label><br>
+		<input type="checkbox" id="Temporada2" name="temporada" value="temp2">
+			<label for="Temporada2">Temporada 2</label><br>
+		<input type="checkbox" id="Temporada3" name="temporada" value="temp3">
+			<label for="Temporada3">Temporada 3</label><br>
+		<input type="checkbox" id="Temporada4" name="temporada" value="temp4">
+			<label for="Temporada4">Temporada 4</label><br>
+		<input type="checkbox" id="Temporada5" name="temporada" value="temp5">
+			<label for="Temporada5">Temporada 5</label><br>
+			<br>
+		<input type="submit" value="Enviar">
+	</fieldset>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<html lang="es" xml:lan="es" xmlns:th="http://www.thymeLeaf.org">
+	<head>
+	</head>
+	<body>
+	<form th:action="@{/quiz2}" method="post">
+		<h1>2ª Pregunta</h1>
+			<fieldset>
+				<legend>¿Que droga se produia en la serie?</legend><br>
+  				<select name="drogas" id="drogas">
+    				<option name="droga" value="Marihuana">Marihuana</option>
+    				<option name="droga" value="Cocaina">Cocaina</option>
+    				<option name="droga" value="Metanfetamina">Metanfetamina</option>
+    				<option name="droga" value="Heroina">Heroina</option>
+  				</select>
+  				<br><br>
+				<input type="submit" value="Enviar">
+			</fieldset>
+	</form>
+	</body>
+</html>

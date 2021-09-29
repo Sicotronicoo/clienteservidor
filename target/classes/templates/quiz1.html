@@ -1,0 +1,25 @@
+<html lang="es" xml:lan="es" xmlns:th="http://www.thymeLeaf.org">
+	<head>
+	</head>
+	<body>
+	<form th:action="@{/quiz1}" method="post">
+	<h1>1ª Pregunta</h1>
+	<fieldset>
+		<legend>¿En que año se estreno la serie; Breaking bad?</legend>
+			<p>
+				<input type="radio" name="anioLanzamiento" value="anio1">2008
+			</p>
+			<p>
+				<input type="radio" name="anioLanzamiento" value="anio2">2006
+			</p>
+			<p>
+				<input type="radio" name="anioLanzamiento" value="anio3">2014
+			</p>
+			<p>
+				<input type="radio" name="anioLanzamiento" value="anio4">2001
+			</p>
+				<input type="submit" value="Enviar">
+	</fieldset>
+	</form>
+	</body>
+</html>

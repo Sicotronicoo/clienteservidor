@@ -1,0 +1,13 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<p th:text=${carro}></p>
+		<form th:action="@{/quiz}" method="post">
+			<fieldset>
+					<legend>QUIZ THE GAME</legend>
+						<p>¿Estas preparado?</p>
+						<input type="submit" value="Empezar">						
+			</fieldset>
+		</form>
+	</body>
+</body>
+</html>
