@@ -5,11 +5,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class controlador {
 
-@RequestMapping(value="/quiz", method=RequestMethod.GET)
+@RequestMapping(value="/quiz", method=RequestMethod .GET)
   public String quiz_get() {
 	
     return "quizindex";
@@ -22,12 +23,13 @@ public class controlador {
   }
   @RequestMapping(value="/quiz1", method=RequestMethod.GET)
   public String quiz1_get() {
-	
+	  
+			
     return "quiz1";
   }
   
   @RequestMapping(value="/quiz1", method=RequestMethod.POST)
-  	public String quiz1_post(){  	  
+  	public String quiz1_post(){   	  		
 	  
 	return "redirect:/quiz2";
   }
@@ -49,7 +51,20 @@ public class controlador {
   }
   
   @RequestMapping(value="/quiz3", method=RequestMethod.POST)
-  	public String quiz3_post(){  	  
+  	public String quiz3_post(Model modelo, HttpSession session,
+  			@RequestParam (value = "temporada1", required = false) String temporada1,
+  			@RequestParam (value = "temporada2", required = false) String temporada2,
+  			@RequestParam (value = "temporada3", required = false) String temporada3,
+  			@RequestParam (value = "temporada4", required = false) String temporada4,
+  			@RequestParam (value = "temporada5", required = false) String temporada5){  
+	  
+	  		modelo.addAttribute("temporada1_form", temporada1);
+	  		modelo.addAttribute("temporada2_form", temporada2);
+	  		modelo.addAttribute("temporada3_form", temporada3);
+	  		modelo.addAttribute("temporada4_form", temporada4);
+	  		modelo.addAttribute("temporada5_form", temporada5);
+
+	  
 	  
 	return "redirect:/quiz4";
   }
@@ -93,8 +108,10 @@ public class controlador {
   }
   
   @RequestMapping(value="/quiz7", method=RequestMethod.POST)
-  	public String quiz7_post(){  	  
+  	public String quiz7_post(Model modelo, HttpSession session,
+			@RequestParam String estreno){  	  
 	  
+	  		modelo.addAttribute("estreno_form", estreno);
 	return "resultado";
   }
 }

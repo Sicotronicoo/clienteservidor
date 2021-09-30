@@ -1,5 +1,27 @@
 <html lang="es" xml:lan="es" xmlns:th="http://www.thymeLeaf.org">
 	<body>
 		<h1>Tu puntuacion es:</h1>
+		<p th:if="${estreno_form == 'anio1'}" th:text="2008"></p>
+		<p th:if="${estreno_form == 'anio2'}" th:text="2006"></p>
+		<p th:if="${estreno_form == 'anio3'}" th:text="2014"></p>
+		<p th:if="${estreno_form == 'anio4'}" th:text="2001"></p>
+		<div th:if="${temporada1_form == 'temp1'}"><p>Temporada 1</p></div>
+		<div th:if="${temporada2_form == 'temp2'}"><p>Temporada 2</p></div>
+		<div th:if="${temporada3_form == 'temp3'}"><p>Temporada 3</p></div>
+		<div th:if="${temporada4_form == 'temp4'}"><p>Temporada 4</p></div>
+		<div th:if="${temporada5_form == 'temp5'}"><p>Temporada 5</p></div>
+		<p th:text=${enfermedad_form}></p>
+		<p th:if="${jessy_form == 'jessy'}" th:text="Jessy"></p>
+		<p th:if="${jesse_form == 'jesse'}" th:text="Jesse"></p>
+		<p th:if="${jasson_form == 'jasson'}" th:text="Jasson"></p>
+		<p th:if="${jhonson_form == 'jhonson'}" th:text="Jhonson"></p>
+		<p th:if="${50_form == '50'}" th:text="50"></p>
+		<p th:if="${54_form == '54'}" th:text="54"></p>
+		<p th:if="${49_form == 'jhonson'}" th:text="49"></p>
+		<p th:if="${51_form == 'jhonson'}" th:text="51"></p>
+		<p th:if="${2002-2006_form == '2002-2006'}" th:text="2002-2006"></p>
+		<p th:if="${2008-20013_form == '2008-2013'}" th:text="2008-2013"></p>
+		<p th:if="${2013-2018_form == '2013-2018'}" th:text="2013-2018"></p>
+		<p th:if="${2000-2008_form == '2000-2008'}" th:text="2000-2008"></p>
 	</body>
 </html>
