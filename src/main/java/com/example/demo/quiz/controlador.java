@@ -51,20 +51,7 @@ public class controlador {
   }
   
   @RequestMapping(value="/quiz3", method=RequestMethod.POST)
-  	public String quiz3_post(Model modelo, HttpSession session,
-  			@RequestParam (value = "temporada1", required = false) String temporada1,
-  			@RequestParam (value = "temporada2", required = false) String temporada2,
-  			@RequestParam (value = "temporada3", required = false) String temporada3,
-  			@RequestParam (value = "temporada4", required = false) String temporada4,
-  			@RequestParam (value = "temporada5", required = false) String temporada5){  
-	  
-	  		modelo.addAttribute("temporada1_form", temporada1);
-	  		modelo.addAttribute("temporada2_form", temporada2);
-	  		modelo.addAttribute("temporada3_form", temporada3);
-	  		modelo.addAttribute("temporada4_form", temporada4);
-	  		modelo.addAttribute("temporada5_form", temporada5);
-
-	  
+  	public String quiz3_post(){ 	  
 	  
 	return "redirect:/quiz4";
   }
@@ -109,9 +96,21 @@ public class controlador {
   
   @RequestMapping(value="/quiz7", method=RequestMethod.POST)
   	public String quiz7_post(Model modelo, HttpSession session,
-			@RequestParam String estreno){  	  
+			@RequestParam String estreno,
+			@RequestParam String droga,
+			@RequestParam String temporada,
+			@RequestParam String enfermedad,
+			@RequestParam String nombreSecundario,
+			@RequestParam String edad,
+			@RequestParam String anio){  	  
 	  
 	  		modelo.addAttribute("estreno_form", estreno);
+	  		modelo.addAttribute("droga_form", droga);
+	  		modelo.addAttribute("temporada_form", temporada);
+	  		modelo.addAttribute("enfermedad_form", enfermedad);
+	  		modelo.addAttribute("nombreSecundario_form", nombreSecundario);
+	  		modelo.addAttribute("edad_form", edad);
+	  		modelo.addAttribute("anio_form", anio);
 	return "resultado";
   }
 }
