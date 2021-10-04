@@ -1,10 +1,11 @@
 <html lang="es" xml:lan="es" xmlns:th="http://www.thymeLeaf.org">
 	<body>
 		<h1>Tu puntuacion es:</h1>
-		<p th:if="${estreno_form == 'anio1'}" th:text="2008"></p>
-		<p th:if="${estreno_form == 'anio2'}" th:text="2006"></p>
-		<p th:if="${estreno_form == 'anio3'}" th:text="2014"></p>
-		<p th:if="${estreno_form == 'anio4'}" th:text="2001"></p>
+		
+		<p th:if="${anioLanzamiento_form == 'anio1'}" th:text="2008"></p>
+		<p th:if="${anioLanzamiento_form == 'anio2'}" th:text="2006"></p>
+		<p th:if="${anioLanzamiento_form == 'anio3'}" th:text="2014"></p>
+		<p th:if="${anioLanzamiento_form == 'anio4'}" th:text="2001"></p>
 		<p th:if="${droga_form == 'Marihuana'}" th:text="Marihuana"></p>
 		<p th:if="${droga_form == 'Cocaina'}" th:text="Cocaina"></p>
 		<p th:if="${droga_form == 'Metanfetamina'}" th:text="Metanfetamina"></p>
