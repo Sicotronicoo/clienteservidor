@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class controlador {
-	int puntuacion;
 
 	@PostMapping("/destroy")
 	public String destroySession(HttpServletRequest request) {
@@ -98,9 +98,9 @@ public class controlador {
 	}
 
 	@RequestMapping(value = "/quiz6", method = RequestMethod.POST)
-	public String quiz6_post(HttpSession httpSession, @RequestParam String anio) {
+	public String quiz6_post(HttpSession httpSession, @RequestParam String edad) {
 
-		httpSession.setAttribute("pregunta7", anio);
+		httpSession.setAttribute("pregunta6", edad);
 		return "redirect:/quiz7";
 	}
 
@@ -109,11 +109,59 @@ public class controlador {
 
 		return "quiz7";
 	}
-
 	@RequestMapping(value = "/quiz7", method = RequestMethod.POST)
-	public String quiz7_post(HttpSession httpSession) {
+	public String quiz7_post(HttpSession httpSession, @RequestParam String anio) {
+
+		httpSession.setAttribute("pregunta7", anio);
+		return "redirect:/resultado";
+	}
+	
+	@RequestMapping(value = "/resultado", method = RequestMethod.GET)
+	public String resultado_get(Model modelo,HttpSession httpSession) {
+		int puntuacion = 0;
 		
 		String anioLanzamiento = (String) httpSession.getAttribute("pregunta1");
-		return "redirect:/resultado";
+		if(anioLanzamiento.equals("anio1")) {
+			puntuacion++;
+		}
+		else {
+			puntuacion = 0;
+		}
+		String drogas = (String) httpSession.getAttribute("pregunta2");
+		String temporada = (String) httpSession.getAttribute("pregunta3");
+		String enfermedad = (String) httpSession.getAttribute("pregunta4");
+		if(enfermedad.equals("cancer")){
+			puntuacion++;
+		}
+		else {
+			puntuacion = puntuacion + 0;
+		}
+		String nombreSecundario = (String) httpSession.getAttribute("pregunta5");
+		if(nombreSecundario.equals("jesse")){
+			puntuacion++;
+		}
+		else {
+			puntuacion = puntuacion + 0;
+		}
+		String edad = (String) httpSession.getAttribute("pregunta6");
+		if(edad.equals("50")){
+			puntuacion++;
+		}
+		else {
+			puntuacion = puntuacion + 0;
+		}
+		String anio = (String) httpSession.getAttribute("pregunta7");
+		if(anio.equals("2008-2013")){
+			puntuacion++;
+		}
+		else {
+			puntuacion = puntuacion + 0;
+		}
+		
+		modelo.addAttribute("puntuacion_form", puntuacion);
+		
+		
+		httpSession.invalidate();
+		return "resultado";
 	}
 }
