@@ -27,8 +27,8 @@ public class controlador {
 
 
 	@RequestMapping(value = "/quiz1", method = RequestMethod.GET)
-	public String quiz1_get() {
-
+	public String quiz1_get(HttpSession httpSession) {
+		httpSession.invalidate();
 		return "quiz1";
 	}
 
@@ -119,6 +119,7 @@ public class controlador {
 	@RequestMapping(value = "/resultado", method = RequestMethod.GET)
 	public String resultado_get(Model modelo,HttpSession httpSession) {
 		int puntuacion = 0;
+		String resultado ="";
 		
 		String anioLanzamiento = (String) httpSession.getAttribute("pregunta1");
 		if(anioLanzamiento.equals("anio1")) {
@@ -128,7 +129,28 @@ public class controlador {
 			puntuacion = 0;
 		}
 		String drogas = (String) httpSession.getAttribute("pregunta2");
+		if(drogas.equals("Metanfetamina")) {
+			puntuacion++;
+		}
+		else {
+			puntuacion = puntuacion + 0;
+		}
 		String temporada = (String) httpSession.getAttribute("pregunta3");
+		if (temporada.equals("temp1")) {
+			puntuacion++;
+		}
+		else if (temporada.equals("temp2")) {
+			puntuacion=+2;
+		}
+		else if (temporada.equals("temp3")) {
+			puntuacion=-1;
+		}
+		else if (temporada.equals("temp4")) {
+			puntuacion=+3;
+		}
+		else {
+			puntuacion=-2;
+		}
 		String enfermedad = (String) httpSession.getAttribute("pregunta4");
 		if(enfermedad.equals("cancer")){
 			puntuacion++;
@@ -157,11 +179,22 @@ public class controlador {
 		else {
 			puntuacion = puntuacion + 0;
 		}
-		
+		if (puntuacion <= 0) {
+			resultado = "Das pena vuelve a ver la serie";
+		}
+		else if (puntuacion >=1 && puntuacion <= 3) {
+			resultado = "Parece que tienes lagunas, deberias repasar la serie";
+		}
+		else if (puntuacion >=4 && puntuacion <=6) {
+			resultado = "Se nota que te gusto la serie, enhorabuena";
+		}
+		else {
+			resultado = "Heisenberg esta orgulloso de ti";
+		}
 		modelo.addAttribute("puntuacion_form", puntuacion);
+		modelo.addAttribute("resultado_form", resultado);
 		
 		
-		httpSession.invalidate();
 		return "resultado";
 	}
 }

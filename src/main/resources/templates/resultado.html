@@ -1,9 +1,24 @@
 <html lang="es" xml:lan="es" xmlns:th="http://www.thymeLeaf.org">
+<head>
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+</head>
 	<body>
 		<form th:action="@{/resultado}" method="post">
 		<h1>Tu puntuacion es:</h1>
 		<p th:text="${puntuacion_form}"></p>
-
+		<p th:text="${resultado_form}"></p>
+		<div th:if="${puntuacion_form >= 4 && puntuacion_form <=6}">
+			<img th:src="@{/img/jessepinkman.jpg}"/>
+		</div>
+		<div th:if="${puntuacion_form >= 7}" >
+			<img th:src="@{/img/Heisenberg.jpg}"/>
+		</div>
+		<div th:if="${puntuacion_form >= 1 && puntuacion_form <= 3}" >
+			<img th:src="@{/img/dea.jpg}"/>
+		</div>
+		<div th:if="${puntuacion_form <=0}" >
+			<img th:src="@{/img/nulo.jpg}"/>
+		</div>
 		
 		<!--<p th:if="${anioLanzamiento_form == 'anio1'}" th:text="2008"></p>
 		<p th:if="${anioLanzamiento_form == 'anio2'}" th:text="2006"></p>
