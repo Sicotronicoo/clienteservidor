@@ -207,9 +207,9 @@ public class controlador {
 		u.setPuntuacion(puntuacion);
 		u.setResultado(resultado);
 		u.setUsuario((String) httpSession.getAttribute("name"));
-
 		usuarioDao.save(u);
 
+		//SELECT *  FROM datos order by Id DESC limit 5; 
 		return "resultado";
 	}
 
