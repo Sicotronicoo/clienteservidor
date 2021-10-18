@@ -20,5 +20,11 @@
 			<img th:src="@{/img/nulo.jpg}"/>
 		</div>
 		<p th:text="${name_form}"></p>
+		
+		<tr th:each="name: ${listaResultado_form}">
+			<td th:text="${name.usuario}"/>		
+			<td th:text="${name.puntuacion}"/>		
+			<td th:text="${name.resultado}"/>	
+		</tr>
 	</body>
 </html>

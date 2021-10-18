@@ -8,7 +8,11 @@ public class Usuario {
 	public Usuario() {
 
 	}
-
+	public Usuario(String usuario, int puntuacion, String resultado) {
+		this.usuario = usuario;
+		this.puntuacion = puntuacion;
+		this.resultado =  resultado;
+	}
 	public String getUsuario() {
 		return usuario;
 	}

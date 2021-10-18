@@ -49,7 +49,7 @@ public class UsuarioJdbc implements UsuarioDao {
 
 	@Override
 	public List<Usuario> findAll() {
-		return jdbcTemplate.query("select * from datos", (rs, rowNum) -> new Usuario());
+		return jdbcTemplate.query("SELECT *  FROM datos order by Id DESC limit 5", (rs, rowNum) -> new Usuario(rs.getString("usuario"), rs.getInt("puntuacion"), rs.getString("resultado")));
 	}
 
 }

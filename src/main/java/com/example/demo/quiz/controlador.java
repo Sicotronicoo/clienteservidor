@@ -1,5 +1,7 @@
 package com.example.demo.quiz;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -208,7 +210,8 @@ public class controlador {
 		u.setResultado(resultado);
 		u.setUsuario((String) httpSession.getAttribute("name"));
 		usuarioDao.save(u);
-
+		List<Usuario> name2 = usuarioDao.findAll();
+		modelo.addAttribute("listaResultado_form", name2);
 		//SELECT *  FROM datos order by Id DESC limit 5; 
 		return "resultado";
 	}
